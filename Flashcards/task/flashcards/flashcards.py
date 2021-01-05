@@ -1,8 +1,28 @@
 def add_cards(a_dict, a_amount_cards):
     for index in range(a_amount_cards):
-        term = input(f"The term for card #{index + 1}:\n")
-        definition = input(f"The definition for card #{index + 1}:\n")
-        a_dict[term] = definition
+        print(f"The term for card #{index + 1}:")
+        while True:
+            term = input()
+            if term in a_dict:
+                print(f"The term \"{term}\" already exists. Try again:")
+                continue
+            else:
+                print(f"The definition for card #{index + 1}:")
+                while True:
+                    definition = input()
+                    if definition in a_dict.values():
+                        print(f"The definition \"{definition}\" already exists. Try again:")
+                        continue
+                    a_dict[term] = definition
+                    break
+                break
+
+
+def get_key(a_dict, a_value):
+    for key, value in a_dict.items():
+        if value == a_value:
+            return key
+    return None
 
 
 def play_game(a_dict):
@@ -13,7 +33,11 @@ def play_game(a_dict):
         if user_guess == value:
             print("Correct!")
         else:
-            print(f"Wrong. The right answer is \"{value}\".")
+            if user_guess in a_dict.values():
+                other_key = get_key(a_dict, user_guess)
+                print(f"Wrong. The right answer is \"{value}\", but your definition is correct for \"{other_key}\".")
+            else:
+                print(f"Wrong. The right answer is \"{value}\".")
 
 
 def run():
