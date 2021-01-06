@@ -286,6 +286,15 @@ files:
     if __name__ == "__main__":
         FlashcardsTest("flashcards.flashcards").run_tests()
   learner_created: false
+- name: flashcards/save_data.json
+  visible: true
+  learner_created: true
+- name: flashcards/__init__.py
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/127/stages/677/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 06 Jan 2021 07:20:16 UTC
 record: -1
