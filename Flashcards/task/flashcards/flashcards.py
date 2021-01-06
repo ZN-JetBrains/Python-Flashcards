@@ -25,6 +25,16 @@ def get_key(a_dict, a_value):
     return None
 
 
+def set_num_cards():
+    while True:
+        try:
+            cards = int(input("Input the number of cards:\n"))
+        except ValueError:
+            print("[Error]: Invalid input, not a number!")
+        else:
+            return cards
+
+
 def play_game(a_dict):
     for key, value in a_dict.items():
         print(f"Print the definition of \"{key}\":")
@@ -42,7 +52,7 @@ def play_game(a_dict):
 
 def run():
     flashcard_dict = {}
-    num_cards = int(input("Input the number of cards:\n"))
+    num_cards = set_num_cards()
     add_cards(flashcard_dict, num_cards)
     play_game(flashcard_dict)
 
