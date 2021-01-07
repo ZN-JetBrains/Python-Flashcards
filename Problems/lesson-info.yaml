@@ -3,3 +3,7 @@ content:
 - Several testings
 - Invalid inputs and the ValueError
 - Built-in methods
+- Turn into a lambda function
+- Nested functions
+- Re-write using lambda functions
+- Replace lambda with def

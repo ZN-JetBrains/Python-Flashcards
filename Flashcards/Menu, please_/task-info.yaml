@@ -1,11 +1,6 @@
 type: edu
 custom_name: Menu, please!
 files:
-- name: flashcards/flashcards.py
-  visible: true
-  text: |
-    # Write your code here
-  learner_created: false
 - name: tests.py
   visible: false
   text: |
@@ -286,12 +281,11 @@ files:
     if __name__ == "__main__":
         FlashcardsTest("flashcards.flashcards").run_tests()
   learner_created: false
-- name: flashcards/save_data.json
+- name: flashcards/flashcards.py
   visible: true
-  learner_created: true
-- name: flashcards/__init__.py
-  visible: true
-  learner_created: true
+  text: |
+    # Write your code here
+  learner_created: false
 feedback_link: https://hyperskill.org/projects/127/stages/677/implement#comment
 status: Solved
 feedback:
