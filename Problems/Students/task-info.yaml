@@ -2,13 +2,10 @@ type: code
 files:
 - name: main.py
   visible: true
-  text: |-
-    def my_function():
-        return
   learner_created: false
-feedback_link: https://hyperskill.org/learn/step/7098#comment
+feedback_link: https://hyperskill.org/learn/step/8484#comment
 status: Solved
 feedback:
   message: <html>Correct solution</html>
-  time: Thu, 07 Jan 2021 03:30:23 UTC
+  time: Thu, 07 Jan 2021 03:45:54 UTC
 record: -1
