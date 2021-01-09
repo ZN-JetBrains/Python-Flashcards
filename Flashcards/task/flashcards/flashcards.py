@@ -1,6 +1,7 @@
-import random
-import json
 from io import StringIO
+import argparse
+import json
+import random
 
 
 class Menu:
@@ -20,6 +21,10 @@ class Flashcards:
     def __init__(self):
         self.flashcard_dict = {}
         self.logger = StringIO()
+        self.parser = argparse.ArgumentParser()
+        self.parser.add_argument("--import_from", help="file to import flashcards from")
+        self.parser.add_argument("--export_to", help="file to export flashcards to")
+        self.args = self.parser.parse_args()
 
     def print_all_cards(self):
         if not self.flashcard_dict:
@@ -86,8 +91,11 @@ class Flashcards:
         print(output_str)
         file_name = input()
         self.log_line(file_name)
+        self.import_cards_from(file_name)
+
+    def import_cards_from(self, a_file_name):
         try:
-            with open(f"{file_name}", "r") as in_file:
+            with open(f"{a_file_name}", "r") as in_file:
                 if in_file:
                     temp_dict = json.load(in_file)
                     for key in temp_dict.keys():
@@ -106,8 +114,11 @@ class Flashcards:
         print(output_str)
         file_name = input()
         self.log_line(file_name)
+        self.export_cards_to(file_name)
+
+    def export_cards_to(self, a_file_name):
         try:
-            with open(f"{file_name}", "w") as out_file:
+            with open(f"{a_file_name}", "w") as out_file:
                 if out_file:
                     json.dump(self.flashcard_dict, out_file)
                     output_str = f"{len(self.flashcard_dict)} cards have been saved.\n"
@@ -221,7 +232,6 @@ class Flashcards:
     def reset_stats(self):
         for key in self.flashcard_dict.keys():
             self.flashcard_dict[key]["Errors"] = 0
-        # TODO: Verify
         output_str = "Card statistics have been reset.\n"
         self.log_line(output_str)
         print(output_str)
@@ -230,6 +240,10 @@ class Flashcards:
         self.logger.write(f"{a_line}\n")
 
     def run(self):
+        # Run arguments at Start
+        if self.args.import_from is not None:
+            self.import_cards_from(self.args.import_from)
+
         while True:
             print_action = "Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):"
             print(print_action)
@@ -249,6 +263,10 @@ class Flashcards:
             elif user_input == Menu.RANDOM:
                 self.ask_random_cards()
             elif user_input == Menu.EXIT:
+                # Run arguments at end
+                if self.args.export_to is not None:
+                    self.export_cards_to(self.args.export_to)
+
                 bye_str = "Bye bye!"
                 self.log_line(bye_str)
                 print(bye_str)

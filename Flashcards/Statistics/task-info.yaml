@@ -404,18 +404,9 @@ files:
 - name: flashcards/save_data.json
   visible: true
   learner_created: true
-- name: flashcards/__init__.py
-  visible: true
-  learner_created: true
-- name: animal_sounds.txt
-  visible: true
-  learner_created: true
-- name: log.txt
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/projects/127/stages/678/implement#comment
 status: Solved
 feedback:
   message: Congratulations!
   time: Sat, 09 Jan 2021 10:25:58 UTC
-record: -1
+record: 6

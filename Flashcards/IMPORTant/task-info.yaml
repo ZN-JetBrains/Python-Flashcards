@@ -482,6 +482,17 @@ files:
     if __name__ == "__main__":
         FlashcardsTest("flashcards.flashcards").run_tests()
   learner_created: false
+- name: flashcards/save_data.json
+  visible: true
+  text: '{"France": {"Capital": "Paris", "Errors": 1}, "England": {"Capital": "London",
+    "Errors": 0}, "Sweden": {"Capital": "Stockholm", "Errors": 1}}'
+  learner_created: true
+- name: flashcards/__init__.py
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/127/stages/679/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 09 Jan 2021 11:24:39 UTC
 record: -1
